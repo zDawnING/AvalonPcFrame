@@ -1,0 +1,59 @@
+@color-1:#fc9827;
+@color-2:#f4f5f6;
+@color-3:#2baa3f;
+@color-l-gray:#9b9b9b;
+
+
+@color-l-gray-active:lighten(@color-l-gray,30%);
+
+
+.c1{color: @color-1}
+.c_gray{color: @color-l-gray}
+.c_gray_l{color: @color-l-gray-active}
+.c3{color: @color-3}
+
+.fwb{
+	font-weight: 600;
+}
+.bg1{
+	background: @color-1;
+}
+.bg2{
+	background: @color-2;
+}
+.bg_gray{
+	background: @color-l-gray;
+}
+.border1_b{
+    border-bottom: 2px solid;
+	border-color: @color-1;
+}
+.btn_c1_white{
+	border-color: @color-1;
+	.c1();
+	background: #FFFFFF;
+	&:hover{
+		color:#ffffff;
+		.bg1();
+	};
+	&:active{
+		color:#ffffff;
+		.bg1();
+	};
+	&:focus{
+		.bg1();
+		color:#ffffff;
+	};
+}
+.cursor_pointer{
+	cursor: pointer;
+}
+.bg_body{
+	position: relative;
+	.bg_img{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+	
+}

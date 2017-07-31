@@ -1,0 +1,45 @@
+.my_chosen_div {
+	width: 170px;
+	text-align: left;
+	z-index: 10000;
+}
+
+.my_chosen_result_div {
+	position: absolute;
+	border: 1px solid #e5e6e7;
+	border-top: none;
+	z-index: 1000;
+	display: none;
+}
+.my_chosen_result_div.active{
+	display: block;
+}
+.my_chosen_input_div input{
+	display: none;
+}
+.my_chosen_input_div p{
+	display: none;
+	height: 34px;
+	border: 1px solid #e5e6e7;
+	padding: 6px 12px;
+}
+.my_chosen_input_div .active{
+	display: block;
+}
+.my_chosen_result_item {
+	text-align: left;
+	background: white;
+	padding: 6px 12px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.my_chosen_result_item:hover {
+	background: #18a689;
+}
+.my_chosen_result_item:hover p{
+	color: white
+}
+.my_chosen_result_item p {}

@@ -1,0 +1,46 @@
+<div class="modal inmodal fade" id="add_modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content animated flipInY">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title">添加用户组</h4>
+				<small class="font-bold">设置规则请在用户组列表页进行规则配置</small>
+			</div>
+			<div class="modal-body">
+				<div class="form-horizontal">
+
+					<div class="form-group" ms-class="has-error:error.name_error">
+						<label for="add_name" class="col-sm-2 control-label"><font color="red">*</font>用户组名</label>
+						<div class="col-sm-8">
+							<input type="text" id="add_name" ms-blur="v_item('name')" ms-on-keydown="keydown" placeholder="请输入用户组名" class="form-control" ms-duplex="obj.name" />
+							<div class="v-tip right" ms-class="active:error.name_error">
+								<div class="v-tip-arrow"></div>
+								<div class="v-tip-content" ms-text="v_message.name_message"></div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="add_status" class="col-sm-2 control-label">是否启用</label>
+						<div class="col-sm-8 bfc">
+							<div class="pt5 pull-left">
+								<div class="onoffswitch">
+									<input type="checkbox" class="onoffswitch-checkbox" id="add_status" ms-duplex-checked="checked">
+									<label class="onoffswitch-label" for="add_status">
+										<span class="onoffswitch-inner"></span>
+										<span class="onoffswitch-switch"></span>
+									</label>
+								</div>
+							</div>
+							<p class="m0 pull-left pt5 pl10 f14">默认关闭</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary" ms-click="submit" id="add_submit_btn" data-loading-text="<i class='fa fa-spinner fa-spin fa-fw'></i>处理中...">提交</button>
+			</div>	
+		</div>
+	</div>
+</div>

@@ -1,0 +1,61 @@
+/**
+ * 新增的checkbox样式
+ * 使用格式：
+ * 	<div class="common_checkbox_block">
+		<label for="xxx"><input type="checkbox" class="common_checkbox" id="xxx" /><i></i>文本</label>
+	</div>
+ */
+
+.common_checkbox_block input[type="checkbox"] {
+	display: none;
+}
+
+.common_checkbox_block input[type="checkbox"] + i {
+	display: inline-block;
+	*display: inline;
+	vertical-align: middle;
+	margin: 0;
+	padding: 0;
+	width: 22px;
+	height: 22px;
+	background: url(http://127.0.0.1:8008/static/components/modules/checkbox/green.png) no-repeat;
+	border: none;
+	cursor: pointer;
+	margin-right: 5px;
+}
+
+.common_checkbox_block input[type="checkbox"] + i:hover {
+	background-position: -24px 0;
+}
+
+.common_checkbox_block input[type="checkbox"]:checked + i {
+	background-position: -48px 0;
+}
+
+
+/**
+ * 在i元素上添加class="disabled",来禁止checkbox被点击
+ */
+
+.common_checkbox_block input[type="checkbox"] + i.disabled {
+	background-position: -72px 0;
+	cursor: default;
+}
+
+.common_checkbox_block input[type="checkbox"]:checked + i.disabled {
+	background-position: -96px 0;
+}
+
+
+/* HiDPI support */
+
+@media (-o-min-device-pixel-ratio: 5/4),
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 120dpi) {
+	.common_checkbox_block input[type="checkbox"] + i
+	{
+		background-image: url(http://127.0.0.1:8008/static/components/modules/checkbox/green@2x.png);
+		-webkit-background-size: 240px 24px;
+		background-size: 240px 24px;
+	}
+}

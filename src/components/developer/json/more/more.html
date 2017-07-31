@@ -1,0 +1,95 @@
+<div class="modal inmodal fade" id="more_modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" ms-text="obj.name"></h4>
+				<small class="font-bold">详情</small>
+			</div>
+			<div class="modal-body text-center" ms-class="hidden:!is_loading_data">
+				<label class="control-label text-center">详情内容正在加载中...<i class='fa fa-spinner fa-spin fa-fw'></i></label>
+			</div>
+			<div class="modal-body" ms-class="hidden:is_loading_data" ms-class-1="animated:!is_loading_data" ms-class-2="fadeIn:!is_loading_data">
+				<div>
+					<table class="table table-bordered w100_">
+						<tr>
+							<th>接口名称:</th>
+							<td ms-text="obj.name"></td>
+							<th>发布时间:</th>
+							<td ms-text="obj.add_time"></td>
+							<th>发布人:</th>
+							<td ms-text="obj.author"></td>
+						</tr>
+						<tr>
+							<th>接口状态:</th>
+							<td>
+								<font ms-if="obj.status=='0'" color="red">关闭</font>
+								<font ms-if="obj.status=='1'" color="green">开启</font>
+							</td>
+							<th>对接状态:</th>
+							<td>
+								<font ms-if="obj.use_status=='0'" color="red">未对接</font>
+								<font ms-if="obj.use_status=='1'" color="green">已对接</font>
+								<font ms-if="obj.use_status=='2'" color="orange">有调整</font>
+							</td>
+							<th>测试状态:</th>
+							<td>
+								<font ms-if="obj.test_status=='0'" color="red">失败</font>
+								<font ms-if="obj.test_status=='1'" color="green">成功</font>
+								<font ms-if="obj.test_status=='2'" color="orange">未测试</font>
+							</td>
+						</tr>
+						<tr>
+							<th>上级模块:</th>
+							<td ms-text="obj.super_module_name"></td>
+							<th>请求地址:</th>
+							<td ms-text="obj.url" colspan="3"></td>
+						</tr>
+					</table>
+				</div>
+				<div class="p8">
+					<div>
+						<p class="m0"><strong>JSON文档:</strong></p>
+					</div>
+					<div class="mt10">
+						<div class="more-modal-div more_modal_show_json" id="more_modal_show_json">{{obj.json_schema}}</div>
+					</div>
+				</div>
+				<div class="p8">
+					<a href="javascript:" ms-click="show()" ms-if="!is_show">显示更多（前端专用）</a>
+					<a href="javascript:" ms-click="hide()" ms-if="is_show">隐藏更多（前端专用）</a>
+				</div>
+				<!-- 前端专用领域 -->
+				<div ms-class="hide:is_show==false">
+					<div class="p8">
+						<div>
+							<p class="m0"><strong>mock_test.js:</strong></p>
+						</div>
+						<div class="mt10">
+							<div class="more-modal-div more_modal_show_json">{{obj.mock_test}}</div>
+						</div>
+					</div>
+					<div class="p8">
+						<div>
+							<p class="m0"><strong>请求对象:</strong></p>
+						</div>
+						<div class="mt10">
+							<div class="more-modal-div more_modal_show_json">{{obj.request_obj_str}}</div>
+						</div>
+					</div>
+					<div class="p8">
+						<div>
+							<p class="m0"><strong>返回对象:</strong></p>
+						</div>
+						<div class="mt10">
+							<div class="more-modal-div more_modal_show_json">{{obj.response_obj_str}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+			</div>
+		</div>
+	</div>
+</div>

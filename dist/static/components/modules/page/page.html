@@ -1,0 +1,40 @@
+<!-- 分页器 -->
+<div ms-if="page.count>0">
+	<ul class="pagination">
+		<li class="page-text page-select-left">
+			<a>每页显示</a>
+		</li>
+		<li class="page-text page-select">
+			<div class="dropup" ms-class="open:page.is_open">
+				<a class="dropdown-toggle" ms-attr-data-id="vm_id" ms-click="open">
+					   {{page.page_size}}
+					    <span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li ms-repeat="page.page_sizes" ms-attr-data-id="vm_id" ms-click="change_page_size($index)"><a href="javascript:">{{el}}</a></li>
+				</ul>
+			</div>
+
+		</li>
+		<li class="page-text page-select-right">
+			<a>条记录</a>
+		</li>
+		<li class="page-text"><a>共有{{page.count}}条数据</a></li>
+		<li ms-class="disabled:page.cur_page==1" class="active-click" ms-attr-data-id="vm_id" ms-click="home_page()"><a class="first" title="home">«</a></li>
+		<li ms-class="disabled:page.cur_page==1" class="active-click" ms-attr-data-id="vm_id" ms-click="last_page()"><a class="last" title="last">‹</a></li>
+		<li ms-repeat="page.pages" ms-class="active:page.cur_page==el" class="active-click" ms-attr-data-id="vm_id" ms-click="go_page(el)">
+			<a ms-class="other:page.cur_page!=el" href="javascript:">{{el}}</a>
+		</li>
+		<li ms-class="disabled:page.cur_page==page.total_page || page.total_page<1" class="active-click" ms-attr-data-id="vm_id" ms-click="next_page()"><a class="next" title="next">›</a></li>
+		<li ms-class="disabled:page.cur_page==page.total_page || page.total_page<1" class="active-click" ms-attr-data-id="vm_id" ms-click="end_page()"><a class="end" title="end">»</a></li>
+		<li class="page-text"><a>第{{page.cur_page}}/{{page.total_page}}页</a></li>
+		<li class="page-text page-input">
+			<a>
+				<input type="text" placeholder="跳转" ms-duplex="page.user_input_cur_page" ms-attr-data-id="vm_id" ms-keydown="go_to_enter_page" />
+			</a>
+		</li>
+		<li>
+			<a href="javascript:" ms-attr-data-id="vm_id" ms-click="go_to_page(this)">GO</a>
+		</li>
+	</ul>
+</div>

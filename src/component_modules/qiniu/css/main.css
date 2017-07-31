@@ -1,0 +1,197 @@
+
+.col-md-12.no-padding {
+    padding-left:0;
+    padding-right:0;
+}
+.info {
+  position: relative;
+    height: 100%;
+}
+.upload_block tr .progress{
+  width: 96%;
+  display: inline-block;
+}
+.upload_block tr .progress-bar {
+    min-height: 20px;
+    float: none;
+}
+.upload_block tr .progress, tr .progress div {
+  height: 20px;
+}
+
+.upload_block tr .progress .chunk-status {
+    position: absolute;
+    left: 24px;
+    top: 0;
+}
+.upload_block tr .progressCancel{
+  display: inline-block;
+  float: right;
+  position: relative;
+  z-index: 100;
+  color: #333;
+  text-decoration: none;
+}
+.upload_block .status {
+  /*position: absolute;
+  width: 100%;
+  top:0;
+  left: 24px;*/
+}
+.upload_block .tip {
+  padding-left: 30px;
+}
+.upload_block .tip p {
+  line-height: 1;
+}
+/*#container {
+  margin-bottom: 20px;
+  border-width: 2px;
+  border-radius: 3px;
+  border-color: #dcdcdc;
+  cursor: default;
+}
+#container:hover,#container:active  {
+  background-color:#fff;
+  border-color: #dcdcdc;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+#container.draging {
+  background-color:#fff;
+  border-color:#999999;
+}*/
+#success {
+  line-height: 30px;
+  height: 30px;
+  /*margin:20px 0 0 0;*/
+}
+#success div {
+    padding-left: 24px;
+}
+#container a {
+  width: 15%;
+  min-width: 145px;
+
+
+}
+
+.upload_block button {
+    border-radius: 3px;
+  -webkit-box-shadow: 0 1px 0 rgba(243, 243, 243, 0.75);
+  box-shadow: 0 1px 0 rgba(243, 243, 243, 0.75);
+  color: #646464;
+  border: 1px solid #d2d2d2;
+  text-align: center;
+  -webkit-transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
+  transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
+  -webkit-user-select: none;
+  outline: none;
+  padding: 3px 5px;
+  float: left;
+}
+.upload_block td .Wrapper {
+  margin-top: 20px;
+  text-align: center;
+  overflow: hidden;
+}
+.upload_block td .Wrapper .infoWrapper{
+  width:50%;
+  height:100px;
+  margin-left: 10px;
+  text-align: left;
+  line-height: 25px;
+}
+.upload_block td .Wrapper .infoWrapper a:first-child{
+  margin-right: 10px;
+}
+.upload_block td .Wrapper.default {
+	display: none;
+  margin-top: 20px;
+  text-align: left;
+}
+.upload_block td .Wrapper.default img{
+  width:100px;
+  height:100px;
+}
+.upload_block td .imgWrapper {
+  position: relative;
+  width:100px;
+  height: 100px;
+}
+.upload_block td .imgWrapper .linkWrapper {
+    position: absolute;
+    left: 15px;
+    top: 0;
+    width:100px;
+    height: 100px;
+    cursor: pointer;
+}
+.upload_block td .imgWrapper .linkWrapper a{
+    line-height: 50px;
+
+}
+.upload_block table td .hash {
+    margin-bottom: 20px;
+}
+.upload_block pre  {
+    margin-top: 20px;
+}
+
+.container .modal-dialog {
+    width: 45%;
+}
+.container .modal-dialog .modal-content {
+     max-height: 90%;
+}
+.container .modal-dialog  .modal-body img{
+    max-width: 95%;
+    max-height: 70%;
+}
+.container .modal-body-footer , .container .modal-body-footer div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.container .modal-dialog .modal-body-footer  {
+  margin-top: 0px;
+}
+.container .modal-dialog .modal-body-footer span {
+  margin-right: 20px;
+}
+.container .modal-dialog .modal-body-footer .text-warning,.container .modal-dialog .modal-footer span ,.container .modal-dialog .modal-footer a{
+  font-size: 12px;
+}
+.upload_block .body .btn-default {
+    border-radius: 3px;
+  -webkit-box-shadow: 0 1px 0 rgba(243, 243, 243, 0.75);
+  box-shadow: 0 1px 0 rgba(243, 243, 243, 0.75);
+  color: #646464;
+  border: 1px solid #d2d2d2;
+  text-align: center;
+  -webkit-transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
+  transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
+  -webkit-user-select: none;
+  outline: none;
+}
+.upload_block .body .btn-default:hover,.body .btn-default:active,.body .btn-default:focus ,.no-padding button:hover,.no-padding button:active,.no-padding button:focus{
+  border-color: #bebebe;
+  text-decoration: none;
+  background-color: #fff;
+  color: #262626;
+  outline: none;
+    -webkit-box-shadow: 0 1px 0 rgba(230, 230, 230, 0.8);
+  box-shadow: 0 1px 0 rgba(230, 230, 230, 0.8);
+}
+
+.upload_block a {
+    cursor: pointer;
+}
+/*覆盖样式*/
+.upload_block tr .progressCancel {
+    position: absolute;
+    top: 0px;
+    right: -8px;
+}
+.alert-success {
+    padding: 10px;
+}

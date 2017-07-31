@@ -1,0 +1,22 @@
+<div class="city_three_select_div">
+	<div class="bfc">
+		<div class="pull-left w100_ city_three_select_one_div">
+			<select class="form-control" ms-change="one_city_change" id="one_city_select_s">
+				<option value="-1">请选择省</option>
+				<option ms-repeat="one_city" ms-attr-value="$index" ms-text="el.name"></option>
+			</select>
+		</div>
+		<div class="pull-left w100_ mt10 city_three_select_two_div">
+			<select class="form-control" ms-change="two_city_change" id="two_city_select_s">
+				<option value="-1">请选择市</option>
+				<option ms-repeat="two_city"  ms-attr-value="$index" ms-text="el.name"></option>
+			</select>			
+		</div>
+		<div class="pull-left w100_ mt10 city_three_select_three_div">
+			<select class="form-control" ms-change="three_city_change" id="three_city_select_s">
+				<option value="-1">请选择区/县</option>
+				<option ms-repeat="three_city"  ms-attr-value="$index" ms-text="el.name"></option>
+			</select>			
+		</div>
+	</div>
+</div>

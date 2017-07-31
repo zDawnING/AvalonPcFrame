@@ -1,0 +1,83 @@
+.pagination > li{
+	float: left;
+}
+.pagination > li a{
+	height: 28px;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;	
+}
+.pagination .page-text a{
+	cursor: default;
+}
+.pagination .page-text a:hover{
+    background-color: white;
+    border-color: #DDDDDD;
+    color: inherit;	
+}
+.pagination .page-select-left a{
+	border-right-width: 0px;
+	padding-right: 5px;
+}
+.pagination .page-select-right a{
+	border-left-width: 0px;
+	padding-left: 5px;
+}
+.pagination .page-select a{
+	border-left-width: 0px;
+	border-right-width: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.pagination .page-select > div{
+    border: 1px solid #DDDDDD;
+    color: inherit;
+    float: left;
+    line-height: 1.42857;
+    margin-left: -1px;
+    padding: 4px 10px;
+    position: relative;
+    border-left-width: 0px;
+    border-right-width: 0px;
+}
+.pagination .page-select .dropdown-menu{
+	-webkit-transition: all .2s ease;
+	transition: all .2s ease;
+	display: block;
+	max-height: 0;
+	-webkit-transform: scaleY(0);
+	transform: scaleY(0);
+}
+.pagination .page-select .open .dropdown-menu{
+	max-height: 9999px;
+	-webkit-transform: scaleY(1);
+	transform: scaleY(1);	
+	left: 0;
+}
+.pagination .page-select .dropdown-menu li{
+	display: block;
+	-webkit-transition: all .2s ease;
+	transition: all .2s ease;	
+}
+.pagination .page-select .dropdown-menu li a{
+	-webkit-transition: all .2s ease;
+	transition: all .2s ease;		
+}
+.pagination .page-select .dropdown-menu li:hover{
+	/**/
+	background: rgb(238,238,238);
+}
+.pagination .page-select .dropdown-menu li:hover a{
+	background: rgb(238,238,238);
+	color: rgb(55,55,55);
+}
+.pagination .page-input a{
+	padding: 0;
+}
+.pagination .page-input a input{
+	outline: none;
+	height: 100%;
+	border: none;
+	width: 40px;
+	text-align: center;
+}

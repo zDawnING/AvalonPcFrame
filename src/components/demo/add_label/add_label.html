@@ -1,0 +1,39 @@
+<div class="modal inmodal fade" id="add_label_modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content animated flipInY">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title">添加标签</h4>
+			</div>
+			<div class="modal-body">
+				<!-- <div class="form-horizontal">
+					<div class="form-group">
+						<div class="col-sm-12">
+							<select class="form-control">
+								<option value="">请选择标签名称</option>
+							</select>
+						</div>
+					</div>
+				</div> -->
+
+				<div class="bfc p10 border2-bottom">
+					<label class="m0">请选择要添加给选中观众的标签</label>
+				</div>
+
+				<div class="bfc p10 mb20 label_block">
+					<div class="pull-left label_item" 
+						ms-repeat="label_list" 
+						ms-class-1="active: el.is_selected" 
+						ms-click="select_label_item($index)">
+						<span ms-text="el.name"></span>
+					</div>
+				</div>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary" ms-click="submit" ms-attr-disabled="is_load_label_list" data-loading-text="<i class='fa fa-spinner fa-spin fa-fw'></i>处理中...">提交</button>
+			</div>	
+		</div>
+	</div>
+</div>

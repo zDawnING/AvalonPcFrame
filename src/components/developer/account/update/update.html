@@ -1,0 +1,210 @@
+<div class="modal inmodal fade" id="update_modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content animated flipInY">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title">修改管理员</h4>
+			</div>
+			<div class="modal-body text-center" ms-if="is_loading_data">
+				<label class="control-label text-center">数据正在加载中...<i class='fa fa-spinner fa-spin fa-fw'></i></label>
+			</div>
+			<div class="modal-body" ms-if="!is_loading_data">
+				<div class="form-horizontal">
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label"><font color="red">*</font>登录账号</label>
+						<div class="col-sm-9">
+							<input type="text" placeholder="请填写登录账号(必须是手机号码)" class="form-control" ms-duplex="obj.account" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">登录密码</label>
+						<div class="col-sm-9">
+							<input type="password" placeholder="请填写登录密码" class="form-control" ms-duplex="obj.password" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">用户名</label>
+						<div class="col-sm-9">
+							<input type="text" placeholder="请填写用户名" class="form-control" ms-duplex="obj.user_name" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label"> <font color="red">*</font>角色</label>
+						<div class="col-sm-9">
+							<select class="form-control" ms-duplex="obj.group_id">
+								<option value="">请选择角色</option>
+								<option ms-repeat="user_group" ms-attr-value="el.id">{{el.name}}</option>
+							</select>
+						</div>
+					</div>
+					<!-- <div class="form-group">
+						<label class="col-sm-3 control-label"> <font color="red">*</font>选择展会</label>
+						<div class="col-sm-9 bfc">
+							<div class="w40_ pull-left">
+								<div ms-repeat="selected_ex_list" ms-class="mt10:$index>0">
+									<select class="form-control" ms-duplex="el">
+										<option value="">请选择展会</option> -->
+										<!--<option value="">默认是全部展会</option>-->
+										<!--<option value="0">全部展会</option>
+										<option value="-1">未过期展会</option>
+										<option value="-2">过期展会</option>-->
+										<!--<option value="0" ms-if="ex_list.length==0">默认是全部展会</option>-->
+										<!-- <option ms-repeat="ex_list" ms-attr-value="el.id">{{el.name}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="w60_ pull-left pt6 pl10">
+								<div class="bfc">
+									<div class="pull-left w10_">
+										<i class="fa fa-plus to-click" ms-click="add_selected_ex_list"></i>
+									</div>
+									<div class="pull-left w90_">
+										<p class="m0">说明：选择管理员可操作展会数据</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> -->
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label"> <font color="red">*</font>选择展会</label>
+						<div class="col-sm-9 bfc">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>
+											<div class="bfc">
+												<div class="pull-left">
+													<span>说明：选择管理员可操作展会数据</span>
+													<select class="f16" ms-duplex="select_year" ms-change="change_year_data">
+														<option ms-repeat="year_list" ms-attr-value="el">{{el}}年</option>
+													</select>
+												</div>
+												<div class="pull-right">
+													<p class="m0">已选展会<font color="red" ms-text="selected_num"></font>个</p>
+												</div>
+											</div>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ms-repeat="ex_year_list" ms-click="select_ex_item($index)">
+										<td>
+											<div class="bfc table-item pt4">
+												<div class="pull-left w80_">
+													<span class="table-item_text-box" ms-text="el.name"></span>
+													<span class="b_gray c_white table-item_date-box" ms-text="el.date"></span>
+												</div>
+												<div class="pull-right">
+													<i class="fa fa-check-square text-navy table-item_ex-btn_checked to-click" ms-if="el.is_check==1"></i>
+													<i class="fa fa-square-o table-item_ex-btn_no-check to-click" ms-if="el.is_check==0"></i>
+												</div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+					<!--
+					<div class="form-group">
+						<label class="col-sm-3 control-label"><font color="red">*</font>头像图标</label>
+						<div class="col-sm-9">
+							<div class="form-control upload-div">
+								<p class="m0" ms-if="file_name==''">
+									<i class="fa fa-file">&nbsp;&nbsp;</i>点击上传文件(图片建议尺寸：120x120)
+								</p>
+								<p class="m0 pddd" ms-if="file_name!=''">
+									<i class="fa fa-file">&nbsp;&nbsp;</i>{{file_name}}
+								</p>
+								<input id="update_filename" type="file" name="file"/>
+							</div>
+						</div>
+					</div>
+                    -->
+					<!--<div class="form-group">
+						<label class="col-sm-3 control-label"> <font color="red">*</font>性别</label>
+						<div class="col-sm-9">
+							<select class="form-control" ms-duplex="obj.sex">
+								<option value="1">男</option>
+								<option value="0">女</option>
+							</select>
+						</div>
+					</div>-->
+					<!--<div class="form-group">
+						<label class="col-sm-3 control-label"> <font color="red">*</font>城市</label>
+						<div class="col-sm-3">
+							<select class="form-control" ms-duplex="obj.province_id" ms-change="province_change" id="update_province_id">
+								<option value="">请选择省份</option>
+								<option ms-repeat="province" ms-attr-value="el.province_id">{{el.province_name}}</option>
+							</select>
+						</div>
+						<div class="col-sm-3">
+							<select class="form-control" ms-duplex="obj.city_id" ms-change="city_change" id="update_city_id">
+								<option value="">请选择城市</option>
+								<option ms-repeat="city" ms-attr-value="el.city_id">{{el.city_name}}</option>
+							</select>
+						</div>
+						<div class="col-sm-3">
+							<select class="form-control" ms-duplex="obj.county_id" ms-change="county_change" id="update_county_id">
+								<option value="">请选择地区</option>
+								<option ms-repeat="county" ms-attr-value="el.county_id">{{el.county_name}}</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">微信openid</label>
+						<div class="col-sm-9">
+							<input type="text" placeholder="请填写微信openid" class="form-control" ms-duplex="obj.wechat_openid"/>						
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">手机号码</label>
+						<div class="col-sm-9">
+							<input type="text" placeholder="请填写手机号码" class="form-control" ms-duplex="obj.telephone"/>						
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">真实姓名</label>
+						<div class="col-sm-9">
+							<input type="text" placeholder="请填写真实姓名" class="form-control" ms-duplex="obj.real_name"/>						
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">身份证</label>
+						<div class="col-sm-9">
+							<input type="text" placeholder="请填写身份证号码" class="form-control" ms-duplex="obj.id_card"/>						
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label"><font color="red">*</font>简介</label>
+						<div class="col-sm-9">
+							<textarea class="form-control" ms-duplex="obj.intro" rows="2" placeholder="请输入简介"></textarea>
+						</div>
+					</div>-->
+					<div class="form-group">
+						<label for="update_status" class="col-sm-3 control-label">是否启用</label>
+						<div class="col-sm-9 bfc">
+							<div class="pt5 pull-left">
+								<div class="onoffswitch">
+									<input type="checkbox" class="onoffswitch-checkbox" id="update_status" ms-duplex-checked="obj.status">
+									<label class="onoffswitch-label" for="update_status">
+										<span class="onoffswitch-inner"></span>
+										<span class="onoffswitch-switch"></span>
+									</label>
+								</div>
+							</div>
+							<p class="m0 pull-left pt5 pl10 f14">默认启用</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary" ms-click="submit" ms-attr-disabled="is_locked_btn" data-loading-text="<i class='fa fa-spinner fa-spin fa-fw'></i>处理中...">提交</button>
+			</div>
+		</div>
+	</div>
+</div>

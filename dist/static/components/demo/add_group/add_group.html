@@ -1,0 +1,48 @@
+<div class="modal inmodal fade" id="add_group_modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content animated flipInY">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title">添加群组</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<div class="col-sm-12">
+							<input type="text" placeholder="请输入新增的群组名称" class="form-control" ms-duplex="obj.name" />
+						</div>
+						<!-- <div class="col-sm-2">
+							<button class="btn btn-primary" ms-click="add_item"><i class="fa fa-plus pr10"></i>添加</button>
+						</div> -->
+					</div>
+				</div>
+				<!-- 拖曳排序 -->
+				<div class="bfc p10 border2-bottom">
+					<label class="m0">展示的列项</label>
+				</div>
+				<div class="bfc p10 mb20" id="add_group_drag_div">
+					<div class="pull-left drag_block" ms-repeat="selected_group_list">
+						<span ms-text="el.name"></span>
+					</div>
+				</div>
+
+				<!-- 搜索条件 -->
+				<div class="bfc p10 border2-bottom">
+					<label class="m0">选择显示的列</label>
+				</div>
+				<div class="bfc p10 mb20">
+					<div class="pull-left mr10 to-click" ms-repeat="group_list" ms-click="select_group_item($index)">
+            <i class="fa fa-square-o text-navy" ms-if="!el.is_selected"></i>
+            <i class="fa fa-check-square text-navy" ms-if="el.is_selected"></i>
+            <span class="pl5" ms-text="el.name"></span>
+          </div>
+				</div>
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary" ms-click="submit" data-loading-text="<i class='fa fa-spinner fa-spin fa-fw'></i>处理中...">提交</button>
+			</div>	
+		</div>
+	</div>
+</div>

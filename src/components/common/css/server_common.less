@@ -1,0 +1,75 @@
+@color-1:#fc9827;
+@color-2:#56b2fc;
+@color-3:#2baa3f;
+@color-l-gray:#9b9b9b;
+
+@color-2-l:lighten(@color-2,15%);
+@color-l-gray-active:lighten(@color-l-gray,30%);
+
+
+.c1{color: @color-1}
+.c2{color: @color-2}
+.c_gray{color: @color-l-gray}
+.c_gray_l{color: @color-l-gray-active}
+.c3{color: @color-3}
+
+
+.f40{
+	font-size: 40px;
+}
+.f25{
+	font-size: 25px;
+}
+.f30{
+	font-size: 30px;
+}
+.fwb{
+	font-weight: 600;
+}
+.bg1{
+	background: @color-1;
+}
+.bg2{
+	background: @color-2;
+}
+.bg_gray{
+	background: @color-l-gray;
+}
+.border1_b{
+    border-bottom: 2px solid;
+	border-color: @color-1;
+}
+.border2{
+	border: 2px solid @color-2;
+}
+.btn_c1_white{
+	border-color: @color-1;
+	.c1();
+	background: #FFFFFF;
+	&:hover{
+		color:#ffffff;
+		.bg1();
+	};
+	&:active{
+		color:#ffffff;
+		.bg1();
+	};
+	&:focus{
+		.bg1();
+		color:#ffffff;
+	};
+}
+.cursor_pointer{
+	cursor: pointer;
+}
+.bg_body{
+	
+	
+}
+
+.div_shadow{
+	border: 2px solid @color-2-l;
+	-webkit-box-shadow: 0 2px 24px rgb(180, 216, 245), 0 0 1px rgb(180, 216, 245) inset;
+    -moz-box-shadow: 0 2px 24px rgb(180, 216, 245), 0 0 1px rgb(180, 216, 245) inset;
+    box-shadow: 0 1px 20px rgb(180, 216, 245),0 0 1px;
+}

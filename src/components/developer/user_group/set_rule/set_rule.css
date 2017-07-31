@@ -1,0 +1,40 @@
+.one_power{
+	display: block;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #CCCCCC;
+	color: #393939;
+	font-weight: bold;
+}
+.two_power{
+	display: block;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: #E7EBF8 dashed 1px;
+	padding-left: 20px;
+	color: #333;
+}
+.three_power{
+	display: inline-block;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border-bottom: #E7EBF8 dashed 1px;	
+	padding-left: 40px;
+	color: #666;
+}
+.four_power{
+	display: inline-block;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border-bottom: #E7EBF8 dashed 1px;	
+	padding-left: 60px;
+	color: #666;
+}
+.five_power{
+	display: inline-block;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border-bottom: #E7EBF8 dashed 1px;	
+	padding-left: 80px;
+	color: #666;
+}

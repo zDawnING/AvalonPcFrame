@@ -1,0 +1,16 @@
+<div class="modal inmodal fade" ms-attr-id="options.modal_id" tabindex="-1" role="dialog" aria-hidden="true">
+	<div ms-attr-class="'modal-dialog '+options.size_class">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" ms-if="obj.title" ms-text="obj.title"></h4>
+				<small class="font-bold" ms-if="obj.second_title" ms-text="obj.second_title"></small>
+			</div>
+			<div class="modal-body show-modal-body" ms-html="obj.content">
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+			</div>
+		</div>
+	</div>
+</div>

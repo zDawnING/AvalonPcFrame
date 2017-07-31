@@ -1,0 +1,91 @@
+<div class="modal inmodal fade" id="update_modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content animated flipInY">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title">添加模块</h4>
+				<div class="mlrauto w80_">
+					<p class="m0 text-left"><small class="font-bold">css为控制左侧导航顶级栏目前图标样式，具体可查看FontAwesome图标CSS样式</small></p>
+				</div>				
+			</div>
+			<div class="modal-body">
+				<div class="form-horizontal">
+
+					<div class="form-group">
+						<label for="update_name" class="col-sm-3 control-label"><font color="red">*</font>模块名称</label>
+						<div class="col-sm-8">
+							<input type="text" id="update_name" placeholder="请输入模块名称" class="form-control" ms-duplex="obj.name" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="update_superid" class="col-sm-3 control-label">父级</label>
+						<div class="col-sm-8">
+							<select id="update_superid" ms-duplex="obj.pid" class="form-control">
+								<option value="0">默认顶级</option>
+								<option ms-attr-value="el.id" ms-repeat="rel">{{el.name}}</option>
+							</select>
+						</div>	
+					</div>
+					<!--<div class="form-group">
+						<label for="update_app" class="col-sm-3 control-label"><font color="red">*</font>选择应用</label>
+						<div class="col-sm-8">
+							<select id="update_app" ms-duplex="obj.app_id" class="form-control">
+								<option value="">请选择应用</option>
+								<option ms-attr-value="el.app_id" ms-repeat="app_list">{{el.app_name}}</option>
+							</select>
+						</div>	
+					</div>-->
+					<div class="form-group">
+						<label for="update_url" class="col-sm-3 control-label"><font color="red">*</font>URL</label>
+						<div class="col-sm-8">
+							<input type="text" id="update_url" placeholder="请输入URL" class="form-control" ms-duplex="obj.url" />
+						</div>
+					</div>	
+					<!--<div class="form-group" ms-class="has-error:error.sort_error">
+						<label for="update_sort" class="col-sm-3 control-label"><font color="red">*</font>排序</label>
+						<div class="col-sm-8">
+							<input type="text" id="update_sort" ms-blur="v_item('sort')" ms-on-keydown="keydown" placeholder="请输入排序" class="form-control" ms-duplex="obj.sort" />
+							<div class="v-tip right" ms-class="active:error.sort_error">
+								<div class="v-tip-arrow"></div>
+								<div class="v-tip-content" ms-text="v_message.sort_message"></div>
+							</div>							
+						</div>
+					</div>		
+	-->                    
+					<div class="form-group">
+						<label for="update_description" class="col-sm-3 control-label"><font color="red">*</font>描述</label>
+						<div class="col-sm-8">
+							<input type="text" id="update_description" placeholder="请输入描述" class="form-control" ms-duplex="obj.description" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="update_css" class="col-sm-3 control-label"><font color="red">*</font>模块图标CSS</label>
+						<div class="col-sm-8">
+							<input type="text" id="update_css" placeholder="模块图标CSS" class="form-control" ms-duplex="obj.css" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="update_status" class="col-sm-3 control-label">是否启用</label>
+						<div class="col-sm-8 bfc">
+							<div class="pt5 pull-left">
+								<div class="onoffswitch">
+									<input type="checkbox" class="onoffswitch-checkbox" id="update_status" ms-duplex-checked="checked">
+									<label class="onoffswitch-label" for="update_status">
+										<span class="onoffswitch-inner"></span>
+										<span class="onoffswitch-switch"></span>
+									</label>
+								</div>
+							</div>
+							<p class="m0 pull-left pt5 pl10 f14">默认开启</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary" ms-attr-disabled="is_locked_btn" ms-click="submit" id="update_submit_btn" data-loading-text="<i class='fa fa-spinner fa-spin fa-fw'></i>处理中...">提交</button>
+			</div>	
+		</div>
+	</div>
+</div>

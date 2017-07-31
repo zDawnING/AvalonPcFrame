@@ -1,0 +1,23 @@
+.ex-btn_delete{
+	position: absolute;
+	right: -20px;
+	top: 10px;
+}
+
+.table-item{
+	min-height: 25px;
+}
+.table-item_text-box{
+	white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.table-item_date-box{
+	padding: 2px 4px 1px 4px;
+	border-radius: 3px;
+}
+.table-item_ex-btn_no-check{
+	font-size: 19px;
+}
+.table-item_ex-btn_checked{
+	font-size: 18px;
+}

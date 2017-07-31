@@ -1,0 +1,51 @@
+.my_chosen_div_v2 {
+	text-align: left;
+	z-index: 10000;
+	position: fixed;
+	background: white;
+	display: none;
+}
+.my_chosen_div_v2.active{
+	display: block;
+}
+.my_chosen_input_div_v2{
+	background: transparent;
+}
+.my_chosen_result_div_v2 {
+	border: 1px solid #e5e6e7;
+	border-top: none;
+	z-index: 1000;
+	width: 172px;
+	display: none;
+}
+.my_chosen_result_div_v2.active{
+	display: block;
+}
+.my_chosen_input_div_v2 input{
+	display: none;
+}
+.my_chosen_input_div_v2 p{
+	display: none;
+	height: 34px;
+	border: 1px solid #e5e6e7;
+	padding: 6px 12px;
+}
+.my_chosen_input_div_v2 .active{
+	display: block;
+}
+.my_chosen_result_item_v2 {
+	text-align: left;
+	background: white;
+	padding: 6px 12px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.my_chosen_result_item_v2:hover {
+	background: #18a689;
+}
+.my_chosen_result_item_v2:hover p{
+	color: white
+}

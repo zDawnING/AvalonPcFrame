@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>列表</title>
+    <link rel="import" href="components/common/views/css.html?__inline">
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body class="gray-bg" ms-controller="root">
+    <!-- 过场动画 -->
+    <link rel="import" href="components/common/views/begin_loading.html?__inline">
+    <!-- 为了在requirejs加载完js之前页面显示正在加载的动画，需要配合vm的is_ready属性！ -->
+    <div class="wrapper wrapper-content hidden" ms-class="hidden:!is_ready" ms-class-1="animated:is_ready" ms-class-2="fadeInRight:is_ready">
+        <div ms-controller="query">
+            <div class="page_one pt16 pl16 row" ms-class="hide_active:page_show_active">
+                <!-- 筛选条件 -->
+                <div class="col-sm-12 pr0">
+                  <div class="ibox float-e-margins">
+                    <div class="ibox-title bfc">
+                      <h3 class="pull-left">筛选条件</h3>
+                      <div class="pull-right">
+
+                        <div class="form-inline text-right">
+                          <div class="form-group">
+                            <label class="control-label">类型</label>
+                            <select class="form-control" 
+                              ms-duplex="year" 
+                              ms-attr-disabled="is_load_ex_list || is_load_list"
+                              ms-change="change_year">
+                              <option value="-1">全部</option>
+                              <option ms-repeat="year_list" ms-attr-value="el">{{el}}年</option>
+                            </select>
+                          </div>                
+                          <div class="form-group pl16 pr10">
+                            <label class="control-label">展会</label>
+                            <select class="form-control w200-i" 
+                              ms-duplex="query_param.exhibit_id" 
+                              ms-attr-disabled="is_load_ex_list || is_load_list"
+                              ms-change="change_exhibit">
+                              <!-- <option value="">请选择展会</option> -->
+                              <option ms-repeat="ex_list" ms-attr-value="el.id">{{el.name}}</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <button class="btn btn-primary mr10" ms-attr-disabled="is_load_field_list" ms-click="show_select_modal">添加筛选</button>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                    <div class="ibox-content border2_bottom">
+                      <div class="text-right bfc">
+                        <div class="form-inline text-left"> 
+                          <div class="form-group" ms-if="show_query_param.name">
+                            <label>姓名:</label>
+                            <input class="form-control w130" type="text" placeholder="请输入姓名" ms-duplex="query_param.name" />
+                          </div>                
+                          <div class="form-group pl10" ms-if="show_query_param.corporation">
+                            <label>公司名称:</label>
+                            <input class="form-control w130" type="text" placeholder="请输入公司名称" ms-duplex="query_param.corporation" />
+                          </div>                
+                          <div class="form-group pl10" ms-if="show_query_param.phone">
+                            <label>手机号码:</label>
+                            <input class="form-control w130" type="text" placeholder="请输入手机号码" ms-duplex="query_param.phone" />
+                          </div>
+                          <div class="form-group pl10" ms-if="show_query_param.email">
+                            <label>邮件地址:</label>
+                            <input class="form-control w130" type="text" placeholder="请输入邮件地址"  ms-duplex="query_param.email"  />
+                          </div>
+                          <div class="form-group pl10" ms-if="show_query_param.area1">
+                            <label>省份:</label>
+                            <input class="form-control w130" type="text" placeholder="请输入省份名" ms-duplex="query_param.area1" />
+                          </div>
+                          <div class="form-group pl10" ms-if="show_query_param.area2">
+                            <label>市:</label>
+                            <input class="form-control w130" type="text" placeholder="请输入市名"  ms-duplex="query_param.area2" />
+                          </div>
+                          <div class="form-group pl10" ms-if="show_query_param.area3">
+                            <label>县区:</label>
+                            <input class="form-control w130" type="text" placeholder="请输入县区名" ms-duplex="query_param.area3" />
+                          </div>
+                          <div class="form-group pl10" ms-if="show_query_param.post_code">
+                            <label>邮编:</label>
+                            <input class="form-control w130" type="text" placeholder="请输入邮编" ms-duplex="query_param.post_code" />
+                          </div>
+                          <div class="form-group pl10" ms-if="show_query_param.is_checked">
+                            <label>核查状态:</label>
+                            <select class="form-control" ms-duplex="query_param.is_checked">
+                              <option value="">请选择核查状态</option>
+                              <option value="0">未核查</option>
+                              <option value="1">已核查</option>
+                            </select>
+                          </div>
+                          <div class="form-group pl10" ms-if="show_query_param.is_english">
+                            <label>国内外:</label>
+                            <select class="form-control" ms-duplex="query_param.is_english">
+                              <option value="">请选择国内外</option>
+                              <option value="0">国内</option>
+                              <option value="1">国外</option>
+                            </select>
+                          </div>
+                           <div class="form-group pl10" ms-if="show_query_param.effective_phone">
+                            <label>手机是否有效:</label>
+                            <select class="form-control" ms-duplex="query_param.effective_phone">
+                              <option value="">请选择有效状态</option>
+                              <option value="1">有效</option>
+                              <option value="2">无效</option>
+                            </select>
+                          </div>
+                           <div class="form-group pl10" ms-if="show_query_param.effective_address">
+                            <label>地址是否有效:</label>
+                            <select class="form-control" ms-duplex="query_param.effective_address">
+                              <option value="">请选择有效状态</option>
+                              <option value="1">有效</option>
+                              <option value="2">无效</option>
+                            </select>
+                          </div>
+                           <div class="form-group pl10" ms-if="show_query_param.effective_email">
+                            <label>邮箱是否有效:</label>
+                            <select class="form-control" ms-duplex="query_param.effective_email">
+                              <option value="">请选择有效状态</option>
+                              <option value="1">有效</option>
+                              <option value="2">无效</option>
+                            </select>
+                          </div>
+                           <div class="form-group pl10" ms-if="show_query_param.effective_linkman">
+                            <label>联系人是否有效:</label>
+                            <select class="form-control" ms-duplex="query_param.effective_linkman">
+                              <option value="">请选择有效状态</option>
+                              <option value="1">有效</option>
+                              <option value="2">无效</option>
+                            </select>
+                          </div>
+                          <div class="form-group pl10" ms-if="show_query_param.label_id">
+                            <label>标签:</label>
+                            <select class="form-control" ms-duplex="query_param.label_id">
+                              <option value="">请选择标签</option>
+                              <option ms-repeat="label_list" ms-attr-value="el.id">{{el.name}}</option>
+                            </select>
+                          </div>
+                          <button class="btn btn-primary ml10 w90" id="search_btn" data-loading-text="<i class='fa fa-spinner fa-spin fa-fw'>&nbsp;</i>查询..." ms-click="search_list"><i class="fa fa-search">&nbsp;</i>搜索</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ibox-content">
+                      <div class="bfc">
+                        <div class="pull-left pr16">
+                          <span>常用条件：</span>
+                        </div>
+                        <div class="pull-left mr10 to-click" ms-repeat="selected_field_list" ms-click="select_field_item($index)">
+                          <i class="fa fa-square-o text-navy" ms-if="!el.is_selected"></i>
+                          <i class="fa fa-check-square text-navy" ms-if="el.is_selected"></i>
+                          <span class="pl5" ms-text="el.name"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 筛选列表 -->
+                <div class="col-sm-12 pr0">
+                  <div class="ibox float-e-margins">
+                    <div class="ibox-title bfc">
+                      <h3 class="pull-left">筛选结果</h3>
+                      <div class="ibox-tools">
+                        <button class="btn btn-primary mr10" ms-click="show_import_modal">导入</button>
+                      </div>
+                    </div>
+                    <div class="bg_gray p16">
+                      <div class="pull-left pr16 pt10">
+                        <a ms-click="show_checked_list_modal">已选 <span ms-text="selected_list.size()"></span> 位联系人：</a>
+                      </div>
+                      <div class="pull-left pr16">
+                        <div class="dropdown">
+                          <button class="btn btn-white dropdown-toggle" type="button" id="action_func" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            请选择操作
+                            <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="action_func">
+                            <li><a ms-click="show_add_label_modal">添加标签</a></li>
+                            <li><a ms-click="show_sms_modal">群发短信</a></li>
+                            <li><a ms-click="show_email_modal">群发邮件</a></li>
+                            <li><a ms-click="show_delete_confirm">批量删除</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="pull-left pr16">
+                        <div class="dropdown">
+                          <button class="btn btn-white dropdown-toggle" type="button" id="save_group" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            请选择要保存的群组
+                            <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="save_group">
+                            <li><a ms-repeat="group_list" ms-click="save_selected_to_group($index)" ms-text="el.name"></a></li>
+                            <!-- <li role="separator" class="divider"></li>
+                            <li><a ms-click="show_add_group_modal"><i class="fa fa-plus"></i> 新增群组</a></li> -->
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="pull-left pr16">
+                        <button class="btn btn-primary" ms-click="show_add_group_modal">新增群组</button>
+                      </div>
+                     <!--  <div class="pull-right ml16">
+                        <select class="form-control" ms-duplex="query_param.sort">
+                          <option value="">请选择排序方式</option>
+                          <option value="1">按报名时间排序</option>
+                          <option value="2">按创建时间排序</option>
+                        </select>
+                      </div> -->
+                     <!--  <div class="pull-right pt10">
+                        <span>显示 <span class="text-navy">2/100</span> 个观众</span>
+                      </div> -->
+                      <div class="clearfloat"></div>
+                    </div>
+                    <div class="ibox-content">
+                      <div class="pl16 pr16">
+                        <!-- 表格标题 -->
+                        <div>
+                          <table class="table table-bordered mb0">
+                            <thead>
+                              <tr>
+                                <th class="w5_ relative">
+                                  <div class="common_checkbox_block">
+                                    <label><input type="checkbox" class="common_checkbox" ms-duplex-checked="is_selected_all" ms-change="selected_all"/><i></i></label>
+                                  </div>
+                                  <!-- <div class="select_down_block">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                      <li class="p4">
+                                        <input type="text">
+                                        <span>行</span>
+                                        <span class="pl6">至</span>
+                                        <input type="text">
+                                        <span>行</span>
+                                      </li>
+                                      <li><a href="#">选择当前观众(2)</a></li>
+                                      <li><a href="#">选择全部观众(20000)</a></li>
+                                      <li role="separator" class="divider"></li>
+                                      <li><a href="#">取消选择</a></li>
+                                    </ul>
+                                  </div> --> 
+                                </th>
+                                <th class="w5_">序号</th>
+                                <th>姓名</th>
+                                <th>手机号码</th>
+                                <th class="w15_">公司</th>
+                                <th>邮件</th>
+                                <th class="w10_">操作</th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                        <!-- 表格 -->
+                        <div class="table-div relative">
+                          <div class="loading-div text-center" ms-class="hidden:!is_load_list">
+                            <link rel="import" href="components/common/views/loading.html?__inline">
+                          </div>
+                          <!-- 这块地方固定高度 -->
+                          <div class="table-div">
+                            <table class="table table-striped table-bordered table-hover" ms-class="hidden:is_load_list">
+                              <tbody>
+                                <tr class="no-find-result-tr" ms-class="hidden:list.size()>0">
+                                  <td colspan="10" class="text-center">
+                                    <link rel="import" href="components/common/views/no_find_text.html?__inline">
+                                  </td>
+                                </tr>
+                                <tr ms-repeat="list">
+                                  <td class="w5_">
+                                    <div class="common_checkbox_block">
+                                      <label><input type="checkbox" class="common_checkbox" ms-duplex-checked="el.is_selected" ms-change="checked_change($index)"/><i></i></label>
+                                    </div>
+                                  </td>
+                                  <td class="w5_">{{(module.page.cur_page-1)*module.page.page_size+$index+1}}</td>
+                                  <td ms-attr-title="el.name">{{el.name}}</td>
+                                  <td ms-attr-title="el.phone">{{el.phone}}</td>
+                                  <td class="w15_" ms-attr-title="el.corporation">{{el.corporation}}</td>
+                                 <!--  <td ms-attr-title="el.apply">{{el.apply}}</td>
+                                  <td ms-attr-title="el.addtate">{{el.addtate}}</td> -->
+                                  <td ms-attr-title="el.email">{{el.email}}</td>
+                                  <!-- <td ms-attr-title="el.source">{{el.source}}</td> -->
+                                  <td class="w10_">
+                                    <div class="bfc">
+                                      <!-- <button class="btn btn-primary mr10" ms-click="show_audience_modal($index)">详情</button> -->
+                                      <a class="w333_ pull-left pl5" href="javascript:;" title="详情">
+                                        <i class="fa fa-ellipsis-h text-success active-icon" ms-click="show_audience_modal($index)"></i>
+                                      </a>
+                                      <a class="w333_ pull-left pl5" href="javascript:;" title="修改">
+                                        <i class="fa fa-qrcode text-navy active-icon" ms-click="show_qrcode_modal($index)"></i>
+                                      </a>
+                                      <!-- <a class="w333_ pull-left pl5" href="javascript:;" title="删除">
+                                        <i class="fa fa-trash-o text-danger active-icon" ms-click="show_delete_confirm($index)"></i>
+                                      </a> -->
+                                    </div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="text-right" ms-class="hidden:is_load_list">
+                            <!-- 分页器 -->
+                            <ms:page></ms:page>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="page_two pt16 pl16 pr16" ms-class="show_active:page_two_show_active">
+              <ms:audiencemodal></ms:audiencemodal>
+            </div>
+        </div>
+    </div>
+    <!-- 筛选条件模态框 -->
+    <ms:selectmodal></ms:selectmodal>
+    <!-- 新增分组模特框 -->
+    <ms:addgroupmodal></ms:addgroupmodal>
+    <!-- 已选观众模态框 -->
+    <ms:checkedlistmodal></ms:checkedlistmodal>
+    <!-- 导入观众模态框 -->
+    <ms:importmodal></ms:importmodal>
+    <!-- 添加标签模态框 -->
+    <ms:addlabelmodal></ms:addlabelmodal>
+    <!-- 群发邮件模态框 -->
+    <ms:emailmodal></ms:emailmodal>
+    <!-- 群发短信模态框 -->
+    <ms:smsmodal></ms:smsmodal>
+     <!-- 二维码模态框 -->
+    <ms:qrcodemodal></ms:qrcodemodal>
+    <script type="text/javascript" src="lib/require.js"></script>
+    <script>
+    //设置永不超时
+    require.config({
+        waitSeconds: 0
+    });
+    </script>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>

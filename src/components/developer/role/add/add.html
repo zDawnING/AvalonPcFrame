@@ -1,0 +1,37 @@
+<div class="modal inmodal fade" id="add_modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content animated flipInY">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title">添加角色</h4>
+				<small class="font-bold">设置权限请在角色列表页进行权限配置</small>
+			</div>
+			<div class="modal-body">
+				<div class="form-horizontal">
+
+					<div class="form-group" ms-class="has-error:error.name_error">
+						<label for="add_name" class="col-sm-2 control-label"><font color="red">*</font>角色名</label>
+						<div class="col-sm-8">
+							<input type="text" id="add_name" ms-blur="v_item('r_role_name')" ms-on-keydown="keydown" placeholder="请输入角色名" class="form-control" ms-duplex="obj.r_role_name" />
+							<div class="v-tip right" ms-class="active:error.name_error">
+								<div class="v-tip-arrow"></div>
+								<div class="v-tip-content" ms-text="v_message.name_message"></div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="add_description" class="col-sm-2 control-label">描述</label>
+						<div class="col-sm-8">
+							<input type="textarea" rows="5" id="add_description" ms-blur="v_item('r_description')" ms-on-keydown="keydown" placeholder="请输入对该角色的描述" class="form-control" ms-duplex="obj.r_description" />
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary" ms-click="submit" id="add_submit_btn" data-loading-text="<i class='fa fa-spinner fa-spin fa-fw'></i>处理中...">提交</button>
+			</div>	
+		</div>
+	</div>
+</div>

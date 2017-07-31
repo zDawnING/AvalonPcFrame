@@ -1,0 +1,50 @@
+<div class="modal inmodal fade" id="checked_list_modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content animated flipInY">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title">查看已选列表</h4>
+			</div>
+			<div class="modal-body">
+				<!-- 表格标题 -->
+	      <div>
+	        <table class="table table-bordered">
+	          <thead>
+	            <tr>
+	              <th>姓名</th>
+	              <th>手机号码</th>
+	              <th>公司</th>
+	              <!-- <th>预登记号</th>
+	              <th>报名时间</th> -->
+	              <th>邮件</th>
+	              <!-- <th>渠道</th> -->
+	            </tr>
+	          </thead>
+	        </table>
+	      </div>
+	      <!-- 表格 -->
+	      <div class="table-div relative">
+	        <!-- 这块地方固定高度 -->
+	        <div class="table-div">
+	          <table class="table table-striped table-bordered table-hover">
+	            <tbody>
+	              <tr ms-repeat="checked_list">
+	                <td ms-attr-title="el.name">{{el.name}}</td>
+	                <td ms-attr-title="el.phone">{{el.phone}}</td>
+	                <td ms-attr-title="el.corporation">{{el.corporation}}</td>
+	                <!-- <td ms-attr-title="el.apply">{{el.apply}}</td>
+	                <td ms-attr-title="el.addtate">{{el.addtate}}</td> -->
+	                <td ms-attr-title="el.email">{{el.email}}</td>
+	                <!-- <td ms-attr-title="el.source">{{el.source}}</td> -->
+	              </tr>
+	            </tbody>
+	          </table>
+	        </div>
+				</div>
+			</div>	
+			<div class="modal-footer">
+				<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+			</div>	
+		</div>
+	</div>
+</div>

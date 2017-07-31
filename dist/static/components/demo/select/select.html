@@ -1,0 +1,148 @@
+<div class="modal inmodal fade" id="select_modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content animated flipInY">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title">添加筛选</h4>
+			</div>
+			<div class="modal-body">
+				<!-- 搜索条件 -->
+				<div class="bfc p10 border2-bottom">
+					<label class="m0">搜索条件</label>
+				</div>
+				<div class="bfc p10 mb20">
+					<div class="pull-left mr10 to-click" ms-click="select_query_param('name')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.name"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.name"></i>
+            <span class="pl5">姓名</span>
+          </div>
+          <div class="pull-left mr10 to-click" ms-click="select_query_param('corporation')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.corporation"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.corporation"></i>
+            <span class="pl5">公司名称</span>
+          </div>
+          <div class="pull-left mr10 to-click" ms-click="select_query_param('phone')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.phone"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.phone"></i>
+            <span class="pl5">手机号码</span>
+          </div>
+          <div class="pull-left mr10 to-click" ms-click="select_query_param('email')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.email"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.email"></i>
+            <span class="pl5">邮件地址</span>
+          </div>
+          <div class="pull-left mr10 to-click" ms-click="select_query_param('area1')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.area1"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.area1"></i>
+            <span class="pl5">省份</span>
+          </div>
+          <div class="pull-left mr10 to-click" ms-click="select_query_param('area2')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.area2"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.area2"></i>
+            <span class="pl5">市</span>
+          </div>
+          <div class="pull-left mr10 to-click" ms-click="select_query_param('area3')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.area3"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.area3"></i>
+            <span class="pl5">县区</span>
+          </div>
+          <div class="pull-left mr10 to-click" ms-click="select_query_param('post_code')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.post_code"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.post_code"></i>
+            <span class="pl5">邮编</span>
+          </div>
+         <!--  <div class="pull-left mr10 to-click" ms-click="select_query_param('source')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.source"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.source"></i>
+            <span class="pl5">渠道</span>
+          </div> -->
+          <!-- <div class="pull-left mr10 to-click" ms-click="select_query_param('apply')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.apply"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.apply"></i>
+            <span class="pl5">预登记号</span>
+          </div>
+          <div class="pull-left mr10 to-click" ms-click="select_query_param('date')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.date"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.date"></i>
+            <span class="pl5">报名时间</span>
+          </div> -->
+          <div class="pull-left mr10 to-click" ms-click="select_query_param('is_checked')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.is_checked"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.is_checked"></i>
+            <span class="pl5">核查状态</span>
+          </div>
+          <!-- <div class="pull-left mr10 to-click" ms-click="select_query_param('is_testify')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.is_testify"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.is_testify"></i>
+            <span class="pl5">是否出证</span>
+          </div>
+           <div class="pull-left mr10 to-click" ms-click="select_query_param('is_pda')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.is_pda"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.is_pda"></i>
+            <span class="pl5">是否出场</span>
+          </div> -->
+           <div class="pull-left mr10 to-click" ms-click="select_query_param('is_english')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.is_english"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.is_english"></i>
+            <span class="pl5">国内外</span>
+          </div>
+          <div class="pull-left mr10 to-click" ms-click="select_query_param('effective_phone')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.effective_phone"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.effective_phone"></i>
+            <span class="pl5">手机是否有效</span>
+          </div>
+          <div class="pull-left mr10 to-click" ms-click="select_query_param('effective_address')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.effective_address"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.effective_address"></i>
+            <span class="pl5">地址是否有效</span>
+          </div>
+          <div class="pull-left mr10 to-click" ms-click="select_query_param('effective_email')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.effective_email"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.effective_email"></i>
+            <span class="pl5">邮箱是否有效</span>
+          </div>
+          <div class="pull-left mr10 to-click" ms-click="select_query_param('effective_linkman')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.effective_linkman"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.effective_linkman"></i>
+            <span class="pl5">联系人是否有效</span>
+          </div>
+          <div class="pull-left mr10 to-click" ms-click="select_query_param('label_id')">
+            <i class="fa fa-square-o text-navy" ms-if="!show_query_param.label_id"></i>
+            <i class="fa fa-check-square text-navy" ms-if="show_query_param.label_id"></i>
+            <span class="pl5">标签</span>
+          </div>
+				</div>
+				<!-- 已有资料 -->
+				<div class="bfc p10 border2-bottom">
+					<label class="m0">已有资料</label>
+				</div>
+				<div class="bfc p10 mb20">
+					<div class="col-sm-4 bfc mb5" ms-repeat="have_select_list">
+						<div class="pull-left mr10 to-click" ms-click="select_have_item($index)">
+							<i class="fa fa-square-o text-navy" ms-if="!el.is_selected"></i>
+	            <i class="fa fa-check-square text-navy" ms-if="el.is_selected"></i>
+	            <span class="pl5" ms-text="el.name"></span>
+	          </div>
+					</div>
+				</div>
+				<!-- 暂无资料 -->
+				<div class="bfc p10 border2-bottom">
+					<label class="m0">暂无资料</label>
+				</div>
+				<div class="bfc p10 mb20">
+					<div class="col-sm-4 bfc mb5" ms-repeat="no_select_list">
+						<div class="pull-left mr10 to-click" ms-click="select_no_item($index)">
+							<i class="fa fa-square-o text-navy" ms-if="!el.is_selected"></i>
+	            <i class="fa fa-check-square text-navy" ms-if="el.is_selected"></i>
+	            <span class="pl5" ms-text="el.name"></span>
+	          </div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary" ms-click="submit" ms-attr-disabled="is_load_list" data-loading-text="<i class='fa fa-spinner fa-spin fa-fw'></i>处理中...">提交</button>
+			</div>	
+		</div>
+	</div>
+</div>

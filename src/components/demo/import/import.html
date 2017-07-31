@@ -1,0 +1,70 @@
+<div class="modal inmodal fade" id="import_modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content animated flipInY">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title">导入观众</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">会展</label>
+						<div class="col-sm-10">
+							<select class="form-control" ms-duplex="obj.exhibit_id">
+								<option value="">请选择一个会展</option>
+								<option ms-repeat="ex_list" ms-attr-value="el.id">{{el.name}}（{{el.date}}）</option>
+							</select>
+						</div>
+					</div>					
+					<div class="form-group">
+						<label class="col-sm-2 control-label"><font color="red">*</font>excel</label>
+						<div class="col-sm-10">
+							<div class="form-control upload-div">
+								<p class="m0" ms-if="obj.filename==''">
+									<i class="fa fa-file">&nbsp;&nbsp;</i>点击上传文件
+								</p>
+								<p class="m0" ms-if="obj.filename!=''">
+									<i class="fa fa-file">&nbsp;&nbsp;</i>{{obj.filename}}
+								</p>
+								<input id="import_file" type="file" name="file" />
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">标志</label>
+						<div class="col-sm-10">
+							<input class="form-control" type="text" ms-duplex="obj.mark">
+						</div>
+					</div>
+				</div>
+
+				<div class="bfc mt16">
+					<p>操作说明：</p>
+					<p>1、数据导入必须按照模板里面的格式（<a ms-click="download_template">点我下载导入模板</a>）</p>
+					<p>2、excel表必须清除导入模版之外的数据和格式</p>
+					<p>3、数据没有值的，请留空；数据前后不可留空格</p>
+					<p>4、没有预登记号或证件条码，请留空！导入后，系统会自动生成</p>
+					<p>5、地区数据省市区严格按照模版格式，例如:广东、广州市、天河区／县</p>
+				</div>
+
+				<div class="bfc mt16">
+					<div class="alert alert-success" ms-if="is_show_msg && import_msg.error_num === 0">
+						<span class="">导入成功条数：{{import_msg.correct_num}}</span>
+					</div>
+					<div class="alert alert-warning" ms-if="is_show_msg && import_msg.error_num > 0">
+						<span class="pr16">总导入条数：{{import_msg.correct_num + import_msg.error_num}}</span>
+						<span class="pr16">导入成功条数：<span class="text-navy" ms-text="import_msg.correct_num"></span></span>
+						<span class="pr16">导入失败条数：<span class="text-danger" ms-text="import_msg.error_num"></span></span>
+						<a class="alert-link" ms-click="download_error_list">导出失败列表</a>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary" id="submit_btn" ms-click="submit" data-loading-text="<i class='fa fa-spinner fa-spin fa-fw'></i>处理中...">提交</button>
+			</div>
+		</div>
+	</div>
+</div>
